@@ -19,7 +19,7 @@
 }
 
 .logo {
-	background-image: url("images/logonew.jpeg");
+	background-image: url("images/logo.png");
 	background-size: cover;
 	height: 50px;
 	width: 100%;
@@ -256,7 +256,7 @@ ul a {
 }
 
 .logo {
-    background-image: url("amazon_logo.png");
+    background-image: url("images/logo.png");
 	background-size: cover;
 	height: 50px;
     width: 100px;
