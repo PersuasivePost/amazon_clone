@@ -1,4 +1,4 @@
-<a href="http://127.0.0.1:5500/index.html">Click here </a> to preview amazon.com clone
+<a href="https://persuasivepost.github.io/amazon_clone/">Click here </a> to preview amazon.com clone
 
 This project is a clone of Amazon.com, created using only basic HTML and CSS. 
 It showcases the structure and layout of the Amazon homepage, including key sections such as the header, search bar, navigation menu, product listings, and footer. 
