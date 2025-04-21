@@ -3,11 +3,16 @@ $error = '';
 $success = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // Validate name
+    if (empty($name)) {
+        $error = "Name is required.";
+    }
     // Validate email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Invalid email address.";
     }
     // Validate password
@@ -30,9 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = "Email already registered.";
         } else {
             $hashed = password_hash($password, PASSWORD_DEFAULT);
-            $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
-            $stmt->bind_param("ss", $email, $hashed);
+            $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $name, $email, $hashed);
             if ($stmt->execute()) {
+                $_SESSION['user_name'] = $name; // Store name in session
                 header("Location: index.php");
                 exit;
             } else {
@@ -44,6 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,24 +128,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <div class="register-container">
     <form method="post" action="">
-      <h2>Create account</h2>
-      <?php if ($error): ?>
-        <p class="error-msg"><?= $error ?></p>
-      <?php endif; ?>
+        <h2>Create account</h2>
+        <?php if ($error): ?>
+            <p class="error-msg"><?= $error ?></p>
+        <?php endif; ?>
 
-      <label>Email</label>
-      <input type="email" name="email" required>
+        <label>Your name</label>
+        <input type="text" name="name" required>
 
-      <label>Password</label>
-      <input type="password" name="password" required>
+        <label>Email</label>
+        <input type="email" name="email" required>
 
-      <button type="submit">Create your account</button>
+        <label>Password</label>
+        <input type="password" name="password" required placeholder="At least 6 characters">
 
-      <p class="small-text">
-        By creating an account, you agree to Amazon Clone’s <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
-      </p>
-    </form>
-  </div>
+        <button type="submit">Create your account</button>
+        <!-- ... rest of the form ... -->
 
   <footer>
     <div class="footer-links">

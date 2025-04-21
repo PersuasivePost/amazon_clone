@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -63,17 +65,29 @@
 
             
 
-                <div class="nav-signin border">
-                    <p><span>Hello, sign in</span></p>
-                    <p class="nav-second">Account & List</p>
-                </div>
+            <div class="nav-signin border">
+    <?php if (isset($_SESSION['user_name'])): ?>
+        <p><span>Hello, <?php echo htmlspecialchars($_SESSION['user_name']); ?></span></p>
+        <p class="nav-second">Account & List</p>
+    <?php else: ?>
+        <a href="login.php" style="text-decoration: none; color: white;">
+            <p><span>Hello, sign in</span></p>
+            <p class="nav-second">Account & List</p>
+        </a>
+    <?php endif; ?>
+</div>
                 <div class="nav-return border">
                     <p><span>Returns</span></p>
                     <p class="nav-second">& Orders</p>
                 </div>
                 <div class="nav-cart border">
+                    <!-- <a href="add_to_cart.php"></a> -->
+                    <a href="view_cart.php" class="nav-cart border" style="text-decoration: none; color: white;">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    Cart
+                     Cart
+                    </a>
+                    <!-- <i class="fa-solid fa-cart-shopping"></i>
+                    Cart -->
                 </div>
             </div>
             <div class="panel">
