@@ -18,7 +18,7 @@ CREATE TABLE users (
     name VARCHAR(100) NOT NULL
 );
 ```
-
+### 2. Create the `cart` table:
 Use the following SQL query to create the necessary `cart` table:
 
 ```sql
