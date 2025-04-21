@@ -37,6 +37,32 @@
                         <i class="fa-solid fa-angle-down"></i>
                     </div>
                 </div>
+                        <!-- Profile Picture Upload Section -->
+                 <div class="nav-profile border">
+               <form action="upload_profile.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="profile_picture" id="profile_picture" accept="image/*" />
+                <button type="submit">Upload</button>
+            </form>
+               </div>
+
+                        <!-- Profile Picture Upload Section -->
+            <div class="nav-profile border">
+                <!-- Upload Button and Profile Image -->
+                <form action="upload_profile.php" method="POST" enctype="multipart/form-data" style="display: flex; align-items: center;">
+                    <input type="file" name="Select_file" id="profile_picture" accept="image/*" style="display: none;" />
+                    <label for="profile_picture" class="upload-btn" style="cursor: pointer; margin-right: 10px;"></label>
+                    
+                    <!-- Display Profile Image if uploaded -->
+                    <?php
+                        $profile_img_path = 'uploaded/' . (isset($_GET['file']) ? $_GET['file'] : 'default_profile.png');
+                    ?>
+                    <img id="profile-img" src="<?php echo $profile_img_path; ?>" alt="Profile Image" width="50" height="50" style="border-radius: 50%; object-fit: cover; margin-left: 10px;" />
+                </form>
+            </div>
+
+
+            
+
                 <div class="nav-signin border">
                     <p><span>Hello, sign in</span></p>
                     <p class="nav-second">Account & List</p>
@@ -69,67 +95,95 @@
         </header>
         <div class="hero-section">
             <div class="hero-message">
-                <p>You are on amazon.com. You can also shop on amazon.in for millions of products with fast local delivery. <a><a href="https://www.amazon.in/" target="blank">Click here</a> to go to amazon.in</a></p>
+                <p>You are on amazon.com. You can also shop on amazon.in for millions of products with fast local delivery. <a href="https://www.amazon.in/" target="blank">Click here</a> to go to amazon.in</a></p>
             </div>
         </div>
+
+        <!--  -->
         <div class="shop-section">
-            <div class="box1 box">
-                <div class="box-content">
-                    <h2>Clothes</h2>
-                    <div class="box-img" style="background-image: url('images/box1_image.jpg');"></div>
-                    <p>See more</p>
-                </div>
-            </div>
-            <div class="box2 box">
-                <div class="box-content">
-                    <h2>Health & Personal Care</h2>
-                    <div class="box-img" style="background-image: url('images/box2_image.jpg');"></div>
-                    <p>See more</p>
-                </div>
-            </div>
-            <div class="box3 box">
-                <div class="box-content">
-                    <h2>Furniture</h2>
-                    <div class="box-img" style="background-image: url('images/box3_image.jpg');"></div>
-                    <p>See more</p>
-                </div>
-            </div>
-            <div class="box4 box">
-                <div class="box-content">
-                    <h2>Mobiles</h2>
-                    <div class="box-img" style="background-image: url('images/box4_image.jpg');"></div>
-                    <p>See more</p>
-                </div>
-            </div>
-            <div class="box5 box">
-                <div class="box-content">
-                    <h2>Beauty</h2>
-                    <div class="box-img" style="background-image: url('images/box5_image.jpg');"></div>
-                    <p>See more</p>
-                </div>
-            </div>
-            <div class="box6 box">
-                <div class="box-content">
-                    <h2>Pets</h2>
-                    <div class="box-img" style="background-image: url('images/box6_image.jpg');"></div>
-                    <p>See more</p>
-                </div>
-            </div>
-            <div class="box7 box">
-                <div class="box-content">
-                    <h2>Accessories</h2>
-                    <div class="box-img" style="background-image: url('images/box7_image.jpg');"></div>
-                    <p>See more</p>
-                </div>
-            </div>
-            <div class="box8 box">
-                <div class="box-content">
-                    <h2>Jewellery</h2>
-                    <div class="box-img" style="background-image: url('images/box8_image.jpg');"></div>
-                    <p>See more</p>
-                </div>
+    <a href="clothes.php" style="text-decoration: none; color: inherit;">
+        <div class="box1 box">
+            <div class="box-content">
+                <h2>Clothes</h2>
+                <div class="box-img" style="background-image: url('images/box1_image.jpg');"></div>
+                <p>See more</p>
             </div>
         </div>
+    </a>
+
+    <a href="furniture.php" style="text-decoration: none; color: inherit;">
+        <div class="box3 box">
+            <div class="box-content">
+                <h2>Furniture</h2>
+                <div class="box-img" style="background-image: url('images/box3_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="mobiles.php" style="text-decoration: none; color: inherit;">
+        <div class="box4 box">
+            <div class="box-content">
+                <h2>Mobiles</h2>
+                <div class="box-img" style="background-image: url('images/box4_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="beauty.php" style="text-decoration: none; color: inherit;">
+        <div class="box5 box">
+            <div class="box-content">
+                <h2>Beauty</h2>
+                <div class="box-img" style="background-image: url('images/box5_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="pets.php" style="text-decoration: none; color: inherit;">
+        <div class="box6 box">
+            <div class="box-content">
+                <h2>Pets</h2>
+                <div class="box-img" style="background-image: url('images/box6_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="jewellery.php" style="text-decoration: none; color: inherit;">
+        <div class="box8 box">
+            <div class="box-content">
+                <h2>Jewellery</h2>
+                <div class="box-img" style="background-image: url('images/box8_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+        </div>
+    </a>
+  
+    <a href="health.php" style="text-decoration: none; color: inherit;">
+        <div class="box2 box">
+            <div class="box-content">
+                <h2>Health & Personal Care</h2>
+                <div class="box-img" style="background-image: url('images/box2_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="accessories.php" style="text-decoration: none; color: inherit;">
+        <div class="box7 box">
+            <div class="box-content">
+                <h2>Accessories</h2>
+                <div class="box-img" style="background-image: url('images/box7_image.jpg');"></div>
+                <p>See more</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
         <footer>
             <div class="foot-panel1">
                 Back To Top
@@ -188,3 +242,4 @@
         </footer>
     </body>
 </html>
+
